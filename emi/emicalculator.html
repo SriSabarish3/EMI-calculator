@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <video autoplay muted loop class="video-background">
+        <source src="dollar.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    <div class="container">
+        <h1>EMI Calculator</h1>
+        <form id="emiForm">
+            <label for="amount">Loan Amount:</label>
+            <input type="range" id="amount" name="amount" min="10000" max="10000000" step="1000" oninput="updateAmountValue(this.value); calculateEMI()">
+            <span id="amountValue">500000</span>
+
+            <label for="months">Loan Tenure (months):</label>
+            <input type="range" id="months" name="months" min="1" max="240" step="1" oninput="updateMonthsValue(this.value); calculateEMI()">
+            <span id="monthsValue">120</span>
+
+            <label for="interest">Interest Rate (%):</label>
+            <input type="range" id="interest" name="interest" min="1" max="28" step="0.1" oninput="updateInterestValue(this.value); calculateEMI()">
+            <span id="interestValue">10</span>
+
+            <label for="downpayment">Down Payment:</label>
+            <input type="range" id="downpayment" name="downpayment" min="0" max="500000" step="1000" oninput="updateDownPaymentValue(this.value); calculateEMI()">
+            <span id="downpaymentValue">50000</span>
+        </form>
+        <div id="result">
+            <h2>EMI: <span id="emiResult"></span></h2>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
